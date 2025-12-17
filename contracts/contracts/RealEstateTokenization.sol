@@ -161,3 +161,5 @@ contract RealEstateTokenization is ERC1155, ERC1155Supply, Ownable {
     receive() external payable {}
     fallback() external payable {}
 }
+
+// Deployed at Base-Sepolia: 0x374dd5303AeE5BC034D16509C50adc74f5768C18

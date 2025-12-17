@@ -38,7 +38,7 @@ app.use(
     process.env.SELLER_WALLET! as `0x${string}`,
     {
       "POST /purchase": {
-        price: "$0.01",
+        price: "$0.1",
         network: "base-sepolia",
       },
     },

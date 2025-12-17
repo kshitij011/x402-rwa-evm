@@ -62,7 +62,7 @@ export const PROPERTIES: Property[] = [
     name: "Miami Beach Penthouse",
     location: "South Beach, Miami, USA",
     description: "Stunning 4-bedroom penthouse with 360° ocean and city views. Located in the heart of South Beach with world-class amenities and direct beach access.",
-    pricePerShare: 0.25,
+    pricePerShare: 0.1,
     totalShares: 800,
     sharesSold: 312,
     minInvestment: 1,
@@ -84,7 +84,7 @@ export const PROPERTIES: Property[] = [
     name: "Dubai Marina Luxury Apt",
     location: "Dubai Marina, UAE",
     description: "Premium 3-bedroom apartment in iconic Dubai Marina tower. Floor-to-ceiling windows with breathtaking marina views, high rental demand from executives.",
-    pricePerShare: 0.15,
+    pricePerShare: 0.1,
     totalShares: 600,
     sharesSold: 489,
     minInvestment: 1,
@@ -102,38 +102,31 @@ export const PROPERTIES: Property[] = [
     ],
   },
 
-  {
-    id: "4",
-    name: "Modern Duplex",
-    location: "Texas, US",
-    description: "Premium 3-bedroom apartment in iconic Dubai Marina tower. Floor-to-ceiling windows with breathtaking marina views, high rental demand from executives.",
-    pricePerShare: 0.13,
-    totalShares: 700,
-    sharesSold: 489,
-    minInvestment: 1,
-    maxInvestment: 75,
-    propertyValue: 900000,
-    projectedYield: 9.2,
-    images: [
-      "https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?q=80&w=2167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    ],
-    amenities: ["Backyard", "Pool", "3 Bedrooms", "Smart Home", "Gym", "Valet Parking"],
-    documents: [
-      { name: "Property Deed", verified: true },
-      { name: "Valuation Report", verified: true },
-      { name: "Legal Opinion", verified: true },
-    ],
-  },
+  // {
+  //   id: "4",
+  //   name: "Modern Duplex",
+  //   location: "Texas, US",
+  //   description: "Premium 3-bedroom apartment in iconic Dubai Marina tower. Floor-to-ceiling windows with breathtaking marina views, high rental demand from executives.",
+  //   pricePerShare: 0.13,
+  //   totalShares: 700,
+  //   sharesSold: 489,
+  //   minInvestment: 1,
+  //   maxInvestment: 75,
+  //   propertyValue: 900000,
+  //   projectedYield: 9.2,
+  //   images: [
+  //     "https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?q=80&w=2167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  //   ],
+  //   amenities: ["Backyard", "Pool", "3 Bedrooms", "Smart Home", "Gym", "Valet Parking"],
+  //   documents: [
+  //     { name: "Property Deed", verified: true },
+  //     { name: "Valuation Report", verified: true },
+  //     { name: "Legal Opinion", verified: true },
+  //   ],
+  // },
 ];
 
-// // USDC on Solana Mainnet
 export const BASE_SEPOLIA_USDC = {
   address:"0x036CbD53842c5426634e7929541eC2318f3dCF7e",
   decimals: 6,
 };
-
-// export const REAL_ESTATE_PROGRAM_ID="2SLgYEkzcZfHeZqhssWJSxC4w8pyLheFjj275z1QtYXY";
-
-// // Network configuration
-// export const SOLANA_NETWORK = "mainnet-beta";
-// export const RPC_ENDPOINT = "https://api.mainnet-beta.solana.com";
