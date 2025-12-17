@@ -84,7 +84,8 @@ export function BuySharesModal({ open, onOpenChange, property, onSharesMinted, o
         const fetchWithPayment = createX402Fetch(walletClient);
 
         const response = await fetchWithPayment(
-        "http://localhost:4000/purchase",
+          "https://x402-rwa-evm.onrender.com/purchase",
+        // "http://localhost:4000/purchase",
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
