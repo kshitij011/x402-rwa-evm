@@ -12,7 +12,8 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:3000",
+  // origin: "http://localhost:3000",
+  origin: "https://x402-rwa-evm-011.vercel.app",
   credentials: true,
 }));
 
