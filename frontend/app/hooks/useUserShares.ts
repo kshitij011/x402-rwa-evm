@@ -50,12 +50,12 @@ export function useUserShares(
             address: CONTRACT_ADDRESS,
             abi: ERC1155_ABI,
             functionName: "balanceOfBatch",
-            args: [accounts, propertyIds],
+            args: [accounts as `0x${string}`[], propertyIds],
         });
 
         const mapped: Record<number, bigint> = {};
         properties.forEach((p, i) => {
-            mapped[p.id] = balances[i];
+            mapped[Number(p.id)] = balances[i];
         });
 
         setShares(mapped);
