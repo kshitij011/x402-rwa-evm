@@ -8,7 +8,7 @@ import { Minus, Plus, Wallet, ArrowRight, CheckCircle2, Loader2, Copy, ExternalL
 import { toast } from "@/app/hooks/use-toast";
 import { useUSDCBalance } from "@/app/hooks/useUSDCBalance";
 import { useWalletClient } from "wagmi";
-import { createX402Fetch } from "@/app/components/utils/x402Client";
+// import { createX402Fetch } from "@/app/components/utils/x402Client";
 
 interface BuySharesModalProps {
   open: boolean;
@@ -81,9 +81,9 @@ export function BuySharesModal({ open, onOpenChange, property, onSharesMinted, o
     try {
         setIsPurchasing(true);
 
-        const fetchWithPayment = await createX402Fetch(walletClient);
+        // const fetchWithPayment = createX402Fetch(walletClient);
 
-        const response = await fetchWithPayment(
+        const response = await fetch(
         "http://localhost:4000/purchase",
         {
             method: "POST",

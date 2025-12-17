@@ -1,23 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { KYCStatus } from "@/app/lib/types";
-
-// export function useKyc() {
-//   const [kycStatus, setKycStatus] = useState<KYCStatus>("unverified");
-
-//   useEffect(() => {
-//     const stored = localStorage.getItem("kycStatus");
-//     if (stored) setKycStatus(stored as KYCStatus);
-//   }, []);
-
-//   const updateKycStatus = (newStatus: KYCStatus) => {
-//     setKycStatus(newStatus);
-//     localStorage.setItem("kycStatus", newStatus);
-//   };
-
-//   return { kycStatus, updateKycStatus };
-// }
-
-
 import { useEffect, useState } from "react";
 import { useAccount, usePublicClient } from "wagmi";
 import { baseSepolia } from "viem/chains";
