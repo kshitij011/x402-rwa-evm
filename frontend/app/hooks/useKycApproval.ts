@@ -1,6 +1,6 @@
 export function useKycApproval() {
   const approve = async (address: string) => {
-    const res = await fetch("http://localhost:4000/kyc/approve", {
+    const res = await fetch("https://x402-rwa-evm.onrender.com/kyc/approve", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ address }),
