@@ -8,14 +8,27 @@ import { mintShares } from "./blockchain/mintShares.ts";
 
 const app = express();
 
-/* ✅ MUST come before routes */
 app.use(express.json());
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://x402-rwa-evm-011.vercel.app",
+];
+
+/* ✅ MUST come before routes */
+
 app.use(cors({
-  // origin: "http://localhost:3000",
-  origin: "https://x402-rwa-evm-011.vercel.app",
-  credentials: true,
-}));
+  origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // allow server-to-server
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+}))
+
+app.options("*", cors());
 
 /* ✅ KYC approve route */
 app.post("/kyc/approve", async (req, res) => {
