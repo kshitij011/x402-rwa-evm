@@ -10,10 +10,10 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = [
-  "https://x402-rwa-evm-011.vercel.app",
-  "http://localhost:3000",
-];
+// const allowedOrigins = [
+//   "https://x402-rwa-evm-011.vercel.app",
+//   "http://localhost:3000",
+// ];
 
 /* ✅ MUST come before routes */
 
@@ -22,19 +22,43 @@ app.use(
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
 
+      const allowedOrigins = [
+        "https://x402-rwa-evm-011.vercel.app",
+        "http://localhost:3000",
+      ];
+
       if (allowedOrigins.includes(origin)) {
         callback(null, origin);
       } else {
-        callback(null, false);
+        callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
+
+    // 🔑 VERY IMPORTANT
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Access-Control-Expose-Headers",
+      "X-Payment",
+      "X-Payment-Token",
+      "X-Payment-Signature",
+      "X-402-Payment",
+    ],
+
+    // 🔑 ALSO IMPORTANT
+    exposedHeaders: [
+      "X-Payment",
+      "X-Payment-Token",
+      "X-Payment-Signature",
+      "X-402-Payment",
+    ],
+
     methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// app.options("*", cors());
+// app.options("/.*/", cors());
 
 
 /* ✅ KYC approve route */
@@ -52,25 +76,6 @@ app.post("/kyc/approve", async (req, res) => {
     console.error(err);
     res.status(500).json({ ok: false, error: "KYC approval failed" });
   }
-});
-
-app.options("/purchase", (req, res) => {
-  const origin = req.headers.origin;
-
-  console.log("🟡 OPTIONS /purchase from:", origin);
-
-  if (
-    origin === "http://localhost:3000" ||
-    origin === "https://x402-rwa-evm-011.vercel.app"
-  ) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  return res.sendStatus(204);
 });
 
 app.use((req, _res, next) => {
