@@ -114,10 +114,10 @@ export function BuySharesModal({ open, onOpenChange, property, onSharesMinted, o
         onSuccess();
         setIsSuccess(true);
 
-        toast({
-        title: "Purchase Successful 🎉",
-        description: "Payment and mint completed",
-        });
+        // toast({
+        // title: "Purchase Successful 🎉",
+        // description: "Payment and mint completed",
+        // });
     } catch (err: any) {
         console.error("Purchase failed:", err);
         toast({
