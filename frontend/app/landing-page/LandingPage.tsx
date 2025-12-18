@@ -72,9 +72,12 @@ export default function LandingPage() {
                 p-10 rounded-3xl backdrop-blur-md bg-white/10 shadow-xl
                 border border-white/20 text-white h-auto
             ">
-              <div className="">
-                <h1 className="text-4xl font-bold mb-4 font-heading">Welcome to X402 Premium Access</h1>
-                <p className="text-lg font-body tracking-light">Check Wallet Connection: Connect your wallet to access premium data on Base Testnet.</p>
+              <div>
+                <div className="flex justify-between items-center ">
+                <h1 className="text-4xl font-bold mb-4 font-heading">Welcome to Estate Token</h1>
+                <span className="text-md font-extrabold shadow text-shadow-lg shadow-white/70 p-1 rounded-2xl px-2">Powered by- X402 protocol</span>
+                </div>
+                <p className="text-lg font-body tracking-light font-mono">Check Wallet Connection: Connect your wallet & complete KYC to purchase property shares of your choice.</p>
               </div>
             </div>
 

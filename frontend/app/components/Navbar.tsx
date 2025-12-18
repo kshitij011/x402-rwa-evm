@@ -30,9 +30,12 @@ export default function Navbar() {
             >
                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.14 1.483L10 16l6.894 1.936a1 1 0 001.14-1.483l-7-14z"></path>
             </svg>
+            <div className='flex flex-col'>
             <span className="text-xl font-bold text-white tracking-wider">
-                X402 DApp
+                Estate Token
             </span>
+            <span className='font-extralight italic text-white'>Tokenizing Real World Assets worldwide</span>
+            </div>
         </div>
 
         {/* 2. Middle Section: Navigation Links */}
