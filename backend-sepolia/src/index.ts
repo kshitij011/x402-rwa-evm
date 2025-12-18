@@ -2,8 +2,8 @@ import express from "express";
 import "dotenv/config";
 import cors from "cors";
 import { paymentMiddleware } from "x402-express";
-import { approveKycUser } from "./blockchain/approveKYC.ts";
-import { mintShares } from "./blockchain/mintShares.ts";
+import { approveKycUser } from "./blockchain/approveKYC.js";
+import { mintShares } from "./blockchain/mintShares.js";
 
 
 const app = express();
@@ -34,7 +34,7 @@ app.use(
   })
 );
 
-app.options("*", cors());
+// app.options("*", cors());
 
 
 /* ✅ KYC approve route */

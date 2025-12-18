@@ -1,7 +1,7 @@
 import { createWalletClient, createPublicClient, http } from "viem";
 import { baseSepolia } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
-import abi from "../abi/RealEstateTokenization.json" with { type: "json" };
+import abi from "../../abi/RealEstateTokenization.json" with { type: "json" };
 
 const account = privateKeyToAccount(process.env.DEPLOYER_PRIVATE_KEY as `0x${string}`);
 
