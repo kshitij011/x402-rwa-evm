@@ -11,8 +11,8 @@ const app = express();
 app.use(express.json());
 
 const allowedOrigins = [
-  "http://localhost:3000",
   "https://x402-rwa-evm-011.vercel.app",
+  "http://localhost:3000",
 ];
 
 /* ✅ MUST come before routes */
