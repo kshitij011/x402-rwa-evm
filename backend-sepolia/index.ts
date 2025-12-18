@@ -54,6 +54,31 @@ app.post("/kyc/approve", async (req, res) => {
   }
 });
 
+app.options("/purchase", (req, res) => {
+  const origin = req.headers.origin;
+
+  console.log("🟡 OPTIONS /purchase from:", origin);
+
+  if (
+    origin === "http://localhost:3000" ||
+    origin === "https://x402-rwa-evm-011.vercel.app"
+  ) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  return res.sendStatus(204);
+});
+
+app.use((req, _res, next) => {
+  console.log("➡️ Incoming:", req.method, req.path, "Origin:", req.headers.origin);
+  next();
+});
+
+
 app.use(
   paymentMiddleware(
     process.env.SELLER_WALLET! as `0x${string}`,
