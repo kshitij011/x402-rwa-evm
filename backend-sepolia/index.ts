@@ -17,18 +17,25 @@ const allowedOrigins = [
 
 /* ✅ MUST come before routes */
 
-app.use(cors({
-  origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // allow server-to-server
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+
       if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+        callback(null, origin);
+      } else {
+        callback(null, false);
       }
-      callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
-}))
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.options("*", cors());
+
 
 /* ✅ KYC approve route */
 app.post("/kyc/approve", async (req, res) => {
