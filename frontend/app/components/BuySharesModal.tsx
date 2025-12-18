@@ -282,7 +282,7 @@ export function BuySharesModal({ open, onOpenChange, property, onSharesMinted, o
                 disabled={!mintTxHash}
                 >
                 <ExternalLink className="h-4 w-4 mr-2" />
-                View on Solana Explorer
+                View on Base Explorer
                 </Button>
             </div>
             <Button variant="gold" onClick={handleClose}>
